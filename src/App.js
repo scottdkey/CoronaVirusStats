@@ -25,7 +25,6 @@ function App() {
     .then((data) => {
         setCovid19Stats(data.data.covid19Stats)
         setLastChecked(data.data.lastChecked)
-        // console.log(data)
       })
       .catch((err) => {
         console.log(err);
@@ -71,7 +70,7 @@ export default App;
 
 const styles = {
   statsContainer: {
-    height: "100%",
+    height: "500px",
     width: "100%",
     display: "inline-block",
     position: "relative",
@@ -80,7 +79,7 @@ const styles = {
   },
   graphColumn: {
     width: "50%",
-    height: "500px",
+    height: "50%",
     display: "inline-block",
     position: "absolute",
     left: "14px",
@@ -97,6 +96,7 @@ const styles = {
     height: "145px",
     backgroundColor: "#3a82c1",
     display: "relative",
+    overflow: "hidden"
   },
   covid: {
     width: "100%",
@@ -104,17 +104,16 @@ const styles = {
   },
   imageContainer: {
     position: "absolute",
-    left: "20%",
-    top: "-50px",
-    width: "400px",
-    height: "195px",
-    overflow: "hidden",
+    left: "-200px",
+    top: "-40px",
+    width: "500px",
+    height: "100%",
 
   },
   bannerTextContainer: {
     zPostion: "5",
     position: "relative",
-    width: "100%",
+    width: "50%",
     color: "white",
     display: "inline-block",
   },
@@ -124,6 +123,8 @@ const styles = {
   },
   body: {
     width: "100%",
-    height: "100%"
+    height: "100%",
+    paddingLeft: "50px",
+    paddingRight: "50px"
   }
 };

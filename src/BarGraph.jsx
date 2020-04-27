@@ -47,6 +47,11 @@ function CustomTooltip({ payload, label, active }) {
 
   return null;
 }
+const formatYAxis = (number) => {
+  const formatted = new Intl.NumberFormat("en", {notation: "compact", compactDisplay: "short"}).format(number)
+  return formatted;
+}
+
 const formatData = stats => {
   const newArray = [];
   stats.forEach(dp => {
@@ -57,7 +62,8 @@ const formatData = stats => {
         name: dp.country,
         deaths: dp.deaths,
         confirmed: dp.confirmed,
-        recovered: dp.recovered
+        recovered: dp.recovered,
+        yAxis: formatYAxis(dp.confirmed)
       });
     } else {
       newArray[index].deaths += dp.deaths;
@@ -68,10 +74,10 @@ const formatData = stats => {
   newArray.sort((a, b) => b.confirmed - a.confirmed);
   return newArray.slice(0, 10);
 };
-export default class Graph extends Component {
 
-  render() {
-    const data = formatData(this.props.covid19Stats);
+const Graph = ({covid19Stats}) => {
+
+    const data = formatData(covid19Stats);
     return (
       <ResponsiveContainer>
         <BarChart
@@ -80,13 +86,18 @@ export default class Graph extends Component {
             top: 5,
             right: 30,
             left: 20,
-            bottom: 5
+            bottom: 5,
           }}
         >
           {/* <CartesianGrid strokeDasharray="3 3" /> */}
           <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip content={<CustomTooltip />} />
+          <YAxis
+            dataKey="confirmed"
+           
+          />
+          <Tooltip
+            formatter={(value) => new Intl.NumberFormat("en").format(value)}
+          />
           <Legend />
           <Bar dataKey="deaths" fill="red" />
           <Bar dataKey="confirmed" fill="blue" />
@@ -95,4 +106,5 @@ export default class Graph extends Component {
       </ResponsiveContainer>
     );
   }
-}
+
+  export default Graph
