@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import Graph from './BarGraph'
+// import Graph from './BarGraph'
 import CovidImage from "./images/covid.png"
-
+import Graph from './Graph'
 
 
 
