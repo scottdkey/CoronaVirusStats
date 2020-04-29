@@ -1,8 +1,8 @@
 import { useWindowDimensions } from "../WindowDimensionsProvider";
 
-const ResponsiveLayout = ({ breakpoint, renderMobile, renderDesktop }) => {
+const ResponsiveLayout = ({ breakPoint, renderMobile, renderDesktop }) => {
   const { width } = useWindowDimensions();
-  return width > breakpoint ? renderDesktop() : renderMobile();
+  return width > breakPoint ? renderDesktop() : renderMobile();
 };
 
 export default ResponsiveLayout

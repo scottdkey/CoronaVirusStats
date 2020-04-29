@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Header from "./components/header";
 import WindowDimensionsProvider from "./components/WindowDimensionsProvider";
 import "bulma/css/bulma.css";
@@ -7,15 +7,11 @@ import Content from './components/Content'
 
 function App() {
 
-
-
   return (
     <WindowDimensionsProvider>
       <div>
         <Header />
-        <div style={styles.body}>
-          <Content />
-        </div>
+        <Content/>
       </div>
     </WindowDimensionsProvider>
   );
