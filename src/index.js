@@ -4,15 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const styles = {
-  base: {
-    margin: "0px",
-    padding: "0px"
-  }
-};
 
 ReactDOM.render(
-    <App />,
+  <div>
+    <App />
+  </div>,
   document.getElementById("root")
 );
 
