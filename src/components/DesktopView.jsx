@@ -1,41 +1,50 @@
 import React from "react";
 import BodyText from "./bodyText";
 import Graph from "./Graph";
+import DesktopHeader from './DesktopHeader'
+
+
 
 const DesktopView = ({ className, covid19Stats }) => (
-    <div className={className} style={styles.container}>
+  <div className={className}>
+    <DesktopHeader />
+    <div style={styles.container}>
       <div style={styles.graphColumn}>
-        <Graph covid19Stats={covid19Stats}/>
+        <Graph covid19Stats={covid19Stats} />
       </div>
       <div style={styles.bodyText}>
         <BodyText />
       </div>
     </div>
-  );
+  </div>
+);
 
 export default DesktopView
 
 const styles = {
   container: {
-    height: "500px",
-    width: "100%",
-    display: "inline-block",
+    height: "100%",
+    width: "75%",
+    display: "flex",
     position: "relative",
-    paddingTop: "50px",
     maxHeight: "750px",
-    margin: "50px"
+    paddingTop: "40px",
+    margin: "auto"
   },
   graphColumn: {
-    width: "50%",
-    height: "50%",
-    display: "inline-block",
+    width: "100%",
+    height: "500px",
     position: "relative",
-    maxWidth: "750px"
+    maxWidth: "750px",
+    display: "inline-block"
   },
   bodyText: {
-    width: "450px",
-    height: "300px",
+    width: "75",
+    height: "100%",
     display: "inline-block",
-    position: "relative"
-  }
+    position: "relative",
+    paddingLeft: "48px"
+    // bottom: "150px"
+  },
+
 };

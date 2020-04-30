@@ -2,12 +2,12 @@
   background-color: aliceblue;
   box-shadow: 2px 2px 5px 5px #00000033, 1px 1px 1px 2px rgba(0, 0, 0, .04);
   border-radius: 5px;
-  width: 60% !important;
+  width: 75% !important;
   cursor: pointer;
-  left: 30% !important;
+  left: 20% !important;
   height: 35px !important;
-
-
+  margin: auto;
+  align-items: center !important;
 }
 
 .recharts-default-legend {

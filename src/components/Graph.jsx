@@ -63,7 +63,6 @@ export default class Graph extends Component {
   kFormatter(num) {
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
   }
-  renderCustomizedLegend
   render() {
     const data = this.formatData(this.props.covid19Stats);
     return (
@@ -85,7 +84,7 @@ export default class Graph extends Component {
             }}
           />
           <Tooltip />
-          <Legend content={this.renderCustomizedLegend} />
+          <Legend/>
           <Bar dataKey="Deaths" fill="#c92b30" />
           <Bar dataKey="Confirmed" fill="#4590d8" />
           <Bar dataKey="Recovered" fill="#53caaa" />

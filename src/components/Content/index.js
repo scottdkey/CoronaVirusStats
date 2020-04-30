@@ -27,7 +27,7 @@ const Content = () => {
 
 return (
   <ResponsiveLayout
-    breakPoint={767}
+    breakPoint={800}
     renderDesktop={() => (
       <DesktopView className="desktop" covid19Stats={covid19Stats} />
     )}
