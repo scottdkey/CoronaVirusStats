@@ -5,7 +5,7 @@ import DesktopView from '../DesktopView'
 
 const Content = () => {
     const [covid19Stats, setCovid19Stats] = useState([]);
-    const [lastChecked, setLastChecked] = useState("");
+    // const [lastChecked, setLastChecked] = useState("");
 
     useEffect(() => {
       fetch("https://covid-19-coronavirus-statistics.p.rapidapi.com/v1/stats", {
@@ -18,7 +18,7 @@ const Content = () => {
         .then(response => response.json())
         .then(data => {
           setCovid19Stats(data.data.covid19Stats);
-          setLastChecked(data.data.lastChecked);
+          // setLastChecked(data.data.lastChecked);
         })
         .catch(err => {
           console.log(err);

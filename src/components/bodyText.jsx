@@ -29,7 +29,8 @@ const styles= {
     margin: "auto",
     fontStyle: "oblique",
     lineHeight: "200%",
-    maxWidth: "450px"
+    maxWidth: "450px",
+    minWidth: "200px"
 
 
 

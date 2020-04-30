@@ -3,39 +3,37 @@ import "./Graph.css";
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
   ResponsiveContainer
 } from "recharts";
-import DefaultTooltipContent from "recharts/lib/component/DefaultTooltipContent";
+// import DefaultTooltipContent from "recharts/lib/component/DefaultTooltipContent";
 
 
-const CustomTooltip = props => {
-  // payload[0] doesn't exist when tooltip isn't visible
-  if (props.payload[0] != null) {
-    // mutating props directly is against react's conventions
-    // so we create a new payload with the name and value fields set to what we want
-    const newPayload = [
-      {
-        name: "Name",
-        // all your data which created the tooltip is located in the .payload property
-        value: props.payload[0].payload.name
-        // you can also add "unit" here if you need it
-      },
-      ...props.payload
-    ];
+// const CustomTooltip = props => {
+//   // payload[0] doesn't exist when tooltip isn't visible
+//   if (props.payload[0] != null) {
+//     // mutating props directly is against react's conventions
+//     // so we create a new payload with the name and value fields set to what we want
+//     const newPayload = [
+//       {
+//         name: "Name",
+//         // all your data which created the tooltip is located in the .payload property
+//         value: props.payload[0].payload.name
+//         // you can also add "unit" here if you need it
+//       },
+//       ...props.payload
+//     ];
 
-    // we render the default, but with our overridden payload
-    return <DefaultTooltipContent {...props} payload={newPayload} />;
-  }
+//     // we render the default, but with our overridden payload
+//     return <DefaultTooltipContent {...props} payload={newPayload} />;
+//   }
 
-  // we just render the default
-  return <DefaultTooltipContent {...props} />;
-};
+//   // we just render the default
+//   return <DefaultTooltipContent {...props} />;
+// };
 
 
 export default class Graph extends Component {
@@ -43,8 +41,8 @@ export default class Graph extends Component {
     const newArray = [];
     stats.forEach(dp => {
       // see if country is in array
-      const index = newArray.findIndex(i => i.name == dp.country);
-      if (index == -1) {
+      const index = newArray.findIndex(i => i.name === dp.country);
+      if (index === -1) {
         newArray.push({
           name: dp.country,
           Deaths: dp.deaths,

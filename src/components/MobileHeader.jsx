@@ -1,6 +1,8 @@
 import React, {useState } from "react";
 import CovidImage from "../images/covid.png";
 import BodyText from "./bodyText";
+import Collapse from '@kunukn/react-collapse'
+import "./MobileHeader.css"
 
 function RenderHeader() {
   const [showText, setShowText] = useState(false);
@@ -8,19 +10,26 @@ function RenderHeader() {
     setShowText(!showText);
   };
 
+
   return (
-      <div style={styles.banner}>
-        <div style={styles.bannerTextContainer}>
-          <div style={styles.header}>COVID-19 Cases by Country</div>
-          <h3 onClick={toggleText} style={styles.moreInfo}>
-            Data provided by Johns Hopkins University
-          </h3>
-        </div>
-        {showText && <BodyText fontColor={"white"}/>}
-        {showText ? (
-          <button onClick={toggleText}>Collapse Details</button>
-        ) : null}
+    <div style={styles.banner}>
+      <div style={styles.bannerTextContainer}>
+        <div style={styles.header}>COVID-19 Cases by Country</div>
+        <h3 onClick={toggleText} style={styles.moreInfo}>
+          Data provided by Johns Hopkins University - click for more info
+        </h3>
       </div>
+      <Collapse className="collapse-css-transition" isOpen={showText}>
+        <BodyText fontColor={"white"} />
+        <div style={styles.buttonArea} className="text-area--button">
+          {showText ? (
+            <button style={styles.button} onClick={toggleText}>
+              Collapse Details
+            </button>
+          ) : null}
+        </div>
+      </Collapse>
+    </div>
   );
 }
 
@@ -54,9 +63,34 @@ const styles = {
     height: "148px",
     margin: "auto",
     textAlign: "center",
-    top: "20px"
+    top: "20px",
+    marginBottom: "10px"
   },
   button: {
-    zPosition: "15"
+    zPosition: "15",
+    height: "37px",
+    width: "165px",
+    borderRadius: "10px",
+    color: "white",
+    backgroundColor: "#95c5e8",
+    fontSize: "17px",
+    border: "none",
+    webkitTextStrokeWidth: ".3px",
+    webkitTextStrokeColor: "black"
+  },
+  buttonArea: {
+    marginBottom: "10px",
+    marginTop: "57px"
+  },
+  animatedTextArea: {
+    transform: "translate"
+  },
+  openedStyle: {
+
+    transition: "transform 500ms ease-in-out"
+  },
+  closedStyle: {
+    maxHeight: "0px",
+    transition: "height 2s"
   }
 };
